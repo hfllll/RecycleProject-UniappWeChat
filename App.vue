@@ -14,6 +14,8 @@
 </script>
 
 <style lang="scss">
+	/* 引入Vant Weapp样式 */
+	@import "@vant/weapp/dist/common/index.wxss";
 	/*每个页面公共css */
 	@import '@/uni_modules/uni-scss/index.scss';
 	/* #ifndef APP-NVUE */
