@@ -9,8 +9,10 @@
 </script>
 <style lang="scss" scoped>
 .main {
-	height: 100%;
 	width: 100%;
 	background-color: red;
+	.icon1{
+		margin: 11px 0px 0px 22px;
+	}
 }
 </style>

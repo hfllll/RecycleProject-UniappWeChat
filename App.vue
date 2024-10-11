@@ -14,10 +14,13 @@
 </script>
 
 <style lang="scss">
-	/* 引入Vant Weapp样式 */
-	@import "@vant/weapp/dist/common/index.wxss";
+	// 带入vant样式组件
+	@import "/wxcomponents/vant-weapp/common/index.wxss";
 	/*每个页面公共css */
 	@import '@/uni_modules/uni-scss/index.scss';
+	/* App.vue 或全局样式文件 */
+	/* 在 App.vue 中 */
+
 	/* #ifndef APP-NVUE */
 	@import '@/static/customicons.css';
 	// 设置整个项目的背景色

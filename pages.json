@@ -1,5 +1,23 @@
 {
 	"pages": [
+		  {
+	        "path": "pages/order/addAccount",
+	        "style": {
+	          "navigationBarTitleText": "选择支付方式"
+	        }
+	      },
+		  {
+	        "path": "pages/order/payWay",
+	        "style": {
+	          "navigationBarTitleText": "选择支付方式"
+	        }
+	      },
+		  {
+	        "path": "pages/order/order",
+	        "style": {
+	          "navigationBarTitleText": "下单"
+	        }
+	      },
 	      {
 	        "path": "pages/my/myAddress",
 	        "style": {
@@ -24,12 +42,6 @@
 				"navigationBarTitleText": "登录"
 			  }
 		  },
-		  {
-	        "path": "pages/order/order",
-	        "style": {
-	          "navigationBarTitleText": "下单"
-	        }
-	      },
 	      {
 	        "path": "pages/my/editAddress",
 	        "style": {
@@ -44,14 +56,12 @@
 		"backgroundColor": "#F8F8F8",
 		"app-plus": {
 			"background": "#efeff4"
+		},
+		"usingComponents": {
+		      //按需引入组件(以button为例)
+		      "van-button": "/wxcomponents/vant-weapp/button/index",
+			  "van-field": "/wxcomponents/vant-weapp/field/index"
 		}
-	},
-  "easycom": {
-	"autoscan": true,
-	"custom": {
-	  "^van-(.*)": "@vant/weapp/dist/$1/index"
 	}
-  }
-	
 
 }
