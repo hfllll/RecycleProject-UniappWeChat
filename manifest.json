@@ -55,7 +55,14 @@
             "urlCheck" : false,
             "checkSiteMap" : false
         },
-        "usingComponents" : true
+        "usingComponents" : true,
+        "app-plus": {
+            "permission": {
+              "location": {
+                "desc": "需要获取您的地理位置"
+              }
+            }
+          }
     },
     "vueVersion" : "3",
     "fallbackLocale" : "zh-Hans"

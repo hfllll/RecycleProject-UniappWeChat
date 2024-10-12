@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
 	<!-- 标题 请选择收款方式 -->
 		<view class="text">
 			<text>请选择收款方式</text>
@@ -120,4 +121,23 @@
 		text-align: center;
 		font-family: Roboto;
 	}
+=======
+  <view>
+    订单
+  </view>
+</template>
+
+<script>
+  export default {
+    data() {
+      return {
+        
+      };
+    }
+  }
+</script>
+
+<style lang="scss">
+
+>>>>>>> 08aa5d0280af08f8b12c190751a69d5aafb46b9a
 </style>

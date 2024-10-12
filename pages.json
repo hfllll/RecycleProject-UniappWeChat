@@ -1,5 +1,6 @@
 {
 	"pages": [
+<<<<<<< HEAD
 		  {
 	        "path": "pages/order/fillOrderInformation",
 	        "style": {
@@ -55,6 +56,65 @@
 	        }
 	      }
 	],
+=======
+	{
+	  "path" : "pages/home/home",
+	  "style" : 
+	  {
+      "navigationBarBackgroundColor": "#2ec076",
+      "navigationBarTextStyle": "white",
+      "navigationStyle":"custom"
+      
+	  }
+	},
+	{
+	  "path" : "pages/points/points",
+	  "style" : 
+	  {
+	    "navigationBarTitleText" : ""
+	  }
+	},
+	{
+	  "path" : "pages/order/order",
+	  "style" : 
+	  {
+	    "navigationBarTitleText" : ""
+	  }
+	},
+	{
+	  "path" : "pages/recycle/recycle",
+	  "style" : 
+	  {
+	    "navigationBarTitleText" : ""
+	  }
+	},
+	{
+	  "path" : "pages/my/my",
+	  "style" : 
+	  {
+	    "navigationBarTitleText" : ""
+	  }
+	},
+	
+	{
+	  "path" : "pages/city/city",
+	  "style" : 
+	  {
+	    "navigationBarTitleText" : "",
+      "app-plus":{
+      	"titleNView":{
+      		"autoBackButton":"false",
+          "buttons":[{
+          "text":"取消",
+          "float":"right",
+          "fontSize":"36upx"
+          }]
+        }
+      }
+
+	  }
+	}],
+>>>>>>> 08aa5d0280af08f8b12c190751a69d5aafb46b9a
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",
@@ -69,6 +129,44 @@
 			  "van-field": "/wxcomponents/vant-weapp/field/index",
 			  "van-icon": "/wxcomponents/vant-weapp/icon/index"
 		}
+<<<<<<< HEAD
 	}
 
+=======
+	},
+  "tabBar":{
+    "list":[
+      {
+        "pagePath":"pages/home/home",
+        "text":"首页",
+        "iconPath": "static/images/home.png",
+        "selectedIconPath": "static/images/home-active.png"
+      },
+      {
+        "pagePath":"pages/points/points",
+        "text":"积分",
+        "iconPath": "static/images/points.png",
+        "selectedIconPath": "static/images/points-active.png"
+      },
+      {
+        "pagePath":"pages/recycle/recycle",
+        "text":"立即回收",
+        "iconPath": "static/images/recycle.png",
+        "selectedIconPath": "static/images/recycle.png"
+      },
+      {
+        "pagePath":"pages/order/order",
+        "text":"订单",
+        "iconPath": "static/images/order.png",
+        "selectedIconPath": "static/images/order-active.png"
+      },
+      {
+        "pagePath":"pages/my/my",
+        "text":"我的",
+        "iconPath": "static/images/my.png",
+        "selectedIconPath": "static/images/my-active.png"
+      }
+    ]
+  }
+>>>>>>> 08aa5d0280af08f8b12c190751a69d5aafb46b9a
 }

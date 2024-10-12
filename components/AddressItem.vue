@@ -12,7 +12,9 @@
 				<text class="name">陈晨晨  </text>
 				<text class="phone">18959878842</text>	
 			</view>
+			<van-icon name="edit" color="blue" size="25px"/>
 		</view>
+		
 		<view class="item">
 			<view class="isdefault">
 				默认地址
@@ -23,7 +25,9 @@
 				<text class="name">陈晨晨  </text>
 				<text class="phone">18959878842</text>	
 			</view>
+			<van-icon name="edit" color="blue" size="25px"/>
 		</view>
+		
 		<view class="item">
 			<view class="isdefault">
 				默认地址
@@ -34,7 +38,7 @@
 				<text class="name">陈晨晨  </text>
 				<text class="phone">18959878842</text>	
 			</view>
-			<van-icon name="edit" color="blue"/>
+			<van-icon name="edit" color="blue" size="25px"/>
 		</view>
 		
 	</view>
@@ -73,10 +77,14 @@
 					color: rgba(255,0,0,1);
 					font-size: 14px;
 				}
-				.area{
-					font-size: 18px;
-					font-weight: 600;
+				.detail{
+					width: 250px;
+					.area{
+						font-size: 18px;
+						font-weight: 600;
+					}
 				}
+
 			}
 			.item:last-of-type {
 			    /* 选择最后一个 <div> 元素 */
