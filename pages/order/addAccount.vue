@@ -1,5 +1,6 @@
 <template>
 	<view class="account">
+		<!-- vant组件引入的输入框 -->
 		<van-cell-group>
 		  <van-field
 		    :value= "value"
@@ -23,9 +24,27 @@
 		  />
 		</van-cell-group>
 	</view>
+	
+	<!-- 注意事项 -->
+	<view class="attention">
+			<view>
+				注意事项
+			</view>
+			<view>
+				请确保提供的信息准确无误以免1到账失败
+			</view>
+			<view>
+				因此导致的导致失败，本平台不承担责任
+			</view>
+	</view>
+	
+	<!-- 确认按钮 -->
+	<confirmButton></confirmButton>
+
 </template>
 
 <script setup>
+	import confirmButton from '@/components/confirmButton.vue';
 	const value = ''
 </script>
 
@@ -51,6 +70,16 @@
 			border-top: 1px solid rgba(187,187,187,1);
 		}
 	}
-	/* small 尺寸 */
+	
+	.attention{
+		margin-top: 26px;
+		text-align: center;
+		line-height: 20px;
+		color: rgba(187,187,187,1);
+		font-size: 12px;
+		text-align: center;
+		font-family: SourceHanSansSC-regular;
+		// line-height: 15px;
+	}
 	
 </style>

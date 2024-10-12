@@ -20,6 +20,10 @@
 	@import '@/uni_modules/uni-scss/index.scss';
 	/* App.vue 或全局样式文件 */
 	/* 在 App.vue 中 */
+	/* app.wxss */
+	view, text, image, button, input, textarea {
+	  box-sizing: border-box;
+	}
 
 	/* #ifndef APP-NVUE */
 	@import '@/static/customicons.css';

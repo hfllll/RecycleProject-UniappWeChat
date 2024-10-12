@@ -1,15 +1,21 @@
 {
 	"pages": [
 		  {
-	        "path": "pages/order/addAccount",
+	        "path": "pages/order/fillOrderInformation",
 	        "style": {
-	          "navigationBarTitleText": "选择支付方式"
+	          "navigationBarTitleText": "填写上门信息"
 	        }
 	      },
 		  {
 	        "path": "pages/order/payWay",
 	        "style": {
 	          "navigationBarTitleText": "选择支付方式"
+	        }
+	      },
+		  {
+	        "path": "pages/order/addAccount",
+	        "style": {
+	          "navigationBarTitleText": "添加账号"
 	        }
 	      },
 		  {
@@ -60,7 +66,8 @@
 		"usingComponents": {
 		      //按需引入组件(以button为例)
 		      "van-button": "/wxcomponents/vant-weapp/button/index",
-			  "van-field": "/wxcomponents/vant-weapp/field/index"
+			  "van-field": "/wxcomponents/vant-weapp/field/index",
+			  "van-icon": "/wxcomponents/vant-weapp/icon/index"
 		}
 	}
 
