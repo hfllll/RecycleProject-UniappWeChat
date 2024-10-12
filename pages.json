@@ -1,62 +1,104 @@
 {
 	"pages": [
-	{
-	  "path" : "pages/home/home",
-	  "style" : 
-	  {
-      "navigationBarBackgroundColor": "#2ec076",
-      "navigationBarTextStyle": "white",
-      "navigationStyle":"custom"
-      
-	  }
-	},
-	{
-	  "path" : "pages/points/points",
-	  "style" : 
-	  {
-	    "navigationBarTitleText" : ""
-	  }
-	},
-	{
-	  "path" : "pages/order/order",
-	  "style" : 
-	  {
-	    "navigationBarTitleText" : ""
-	  }
-	},
-	{
-	  "path" : "pages/recycle/recycle",
-	  "style" : 
-	  {
-	    "navigationBarTitleText" : ""
-	  }
-	},
-	{
-	  "path" : "pages/my/my",
-	  "style" : 
-	  {
-	    "navigationBarTitleText" : ""
-	  }
-	},
-	
-	{
-	  "path" : "pages/city/city",
-	  "style" : 
-	  {
-	    "navigationBarTitleText" : "",
-      "app-plus":{
-      	"titleNView":{
-      		"autoBackButton":"false",
-          "buttons":[{
-          "text":"取消",
-          "float":"right",
-          "fontSize":"36upx"
-          }]
-        }
-      }
 
-	  }
-	}],
+		  {
+	        "path": "pages/order/fillOrderInformation",
+	        "style": {
+	          "navigationBarTitleText": "填写上门信息"
+	        }
+	      },
+		  {
+	        "path": "pages/order/payWay",
+	        "style": {
+	          "navigationBarTitleText": "选择支付方式"
+	        }
+	      },
+		  {
+	        "path": "pages/order/addAccount",
+	        "style": {
+	          "navigationBarTitleText": "添加账号"
+	        }
+	      },
+		  {
+	        "path": "pages/order/order",
+	        "style": {
+	          "navigationBarTitleText": "下单"
+	        }
+	      },
+	      {
+	        "path": "pages/my/myAddress",
+	        "style": {
+	          "navigationBarTitleText": "我的地址"
+	        }
+	      },
+	      {
+	        "path": "pages/my/my",
+	        "style": {
+	          "navigationBarTitleText": "我的"
+	        }
+	      },
+		  {
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "首页"
+			}
+		  },
+		  {
+			  "path": "pages/login/login",
+			  "style": {
+				"navigationBarTitleText": "登录"
+			  }
+		  },
+	      {
+	        "path": "pages/my/editAddress",
+	        "style": {
+	          "navigationBarTitleText": "编辑地址"
+	        }
+	      },
+        {
+          "path" : "pages/home/home",
+          "style" : 
+          {
+            "navigationBarBackgroundColor": "#2ec076",
+            "navigationBarTextStyle": "white",
+            "navigationStyle":"custom"
+            
+          }
+        },
+        {
+          "path" : "pages/points/points",
+          "style" : 
+          {
+            "navigationBarTitleText" : ""
+          }
+        },
+        
+        {
+          "path" : "pages/recycle/recycle",
+          "style" : 
+          {
+            "navigationBarTitleText" : ""
+          }
+        },
+        {
+          "path" : "pages/city/city",
+          "style" : 
+          {
+            "navigationBarTitleText" : "",
+            "app-plus":{
+            	"titleNView":{
+            		"autoBackButton":"false",
+                "buttons":[{
+                "text":"取消",
+                "float":"right",
+                "fontSize":"36upx"
+                }]
+              }
+            }
+          }
+    }],
+
+
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",
@@ -64,8 +106,18 @@
 		"backgroundColor": "#F8F8F8",
 		"app-plus": {
 			"background": "#efeff4"
+		},
+		"usingComponents": {
+		      //按需引入组件(以button为例)
+		    "van-button": "/wxcomponents/vant-weapp/button/index",
+			  "van-field": "/wxcomponents/vant-weapp/field/index",
+			  "van-icon": "/wxcomponents/vant-weapp/icon/index"
 		}
+
 	},
+
+
+
   "tabBar":{
     "list":[
       {
@@ -100,4 +152,5 @@
       }
     ]
   }
+
 }
