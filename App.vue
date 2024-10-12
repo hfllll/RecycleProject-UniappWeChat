@@ -14,8 +14,17 @@
 </script>
 
 <style lang="scss">
+	// 带入vant样式组件
+	@import "/wxcomponents/vant-weapp/common/index.wxss";
 	/*每个页面公共css */
 	@import '@/uni_modules/uni-scss/index.scss';
+	/* App.vue 或全局样式文件 */
+	/* 在 App.vue 中 */
+	/* app.wxss */
+	view, text, image, button, input, textarea {
+	  box-sizing: border-box;
+	}
+
 	/* #ifndef APP-NVUE */
 	@import '@/static/customicons.css';
 	// 设置整个项目的背景色
