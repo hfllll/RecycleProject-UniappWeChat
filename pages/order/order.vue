@@ -5,7 +5,7 @@
 	
 	<!-- 信息入口 -->
 	<view class="">
-		<view class="address">
+		<view class="address" @click="openPopup">
 			<view class="left">
 				<uni-icons type="location-filled" size="30" color="rgba(28,140,242,1)"  ></uni-icons>
 				<text class="location">奥斯可广场</text>	
@@ -110,26 +110,30 @@
 	
 	
 	<view>
-	    <button @click="openPopup">打开底部弹出层</button>
-	    <uni-popup ref="popup" type="bottom">
-	      <view>我是从底部弹出的内容</view>
-		  <view>
-		  	111111111222222222222
-		  </view>
-	    </uni-popup>
+	    <button @click="openPopup">打开底部弹出1层</button>
+	    <uni-popup ref="popup" type="bottom" background-color="#fff">
+			<SearchAddress @close="handleclose" ></SearchAddress>
+		</uni-popup>
 	  </view>
 </template>
-	
+
 <script>
+import SearchAddress from '@/components/SearchAddress.vue';
+
 export default {
-  methods: {
-    openPopup(){
+	components:{
+		SearchAddress
+	},
+	methods: {
+		openPopup(){
            // 通过组件定义的ref调用uni-popup方法 ,如果传入参数 ，type 属性将失效 ，仅支持 ['top','left','bottom','right','center']
-           this.$refs.popup.open('top')
-        }
-  }
+           this.$refs.popup.open()
+		},
+		handleclose(){
+			this.$refs.popup.close()
+		}
+	}
 }
-  
 </script>
 
 <style scoped lang="scss">
