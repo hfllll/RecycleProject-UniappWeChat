@@ -1,0 +1,2 @@
+10/11 引入了vant weap 带来文件夹 wxcomponents 和 __MACOSX
+10/12 pages.json引入vant的popup弹出层组件
