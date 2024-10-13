@@ -46,7 +46,9 @@
 		  {
 			  "path": "pages/login/login",
 			  "style": {
-				"navigationBarTitleText": "登录"
+				"navigationBarTitleText": "登录",
+        "navigationBarBackgroundColor": "#2ec076",
+        "navigationBarTextStyle": "white"
 			  }
 		  },
 	      {
@@ -115,9 +117,6 @@
 		}
 
 	},
-
-
-
   "tabBar":{
     "list":[
       {
