@@ -1,5 +1,8 @@
 <template>
-	<button class="comfire">{{ value }}</button>
+	<view>
+		<button class="comfire">{{ value }}</button>	
+	</view>
+	
 </template>
 
 <script setup>

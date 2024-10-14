@@ -1,136 +1,149 @@
 <template>
 	<view class="common">
-	<!-- 地图 -->
-	<!-- <map class="map" :latitude="latitude" :longitude="longitude" :scale="14"></map> -->
-	
-	<!-- 信息入口 -->
-	<view class="">
-		<view class="address" @click="openPopup">
-			<view class="left">
-				<uni-icons type="location-filled" size="30" color="rgba(28,140,242,1)"  ></uni-icons>
-				<text class="location">奥斯可广场</text>	
-			</view>
-			<uni-icons type="right" size="24" ></uni-icons>		
-		</view>
+		<!-- 地图 -->
+		<!-- <map class="map" :latitude="latitude" :longitude="longitude" :scale="14"></map> -->
 		
-		<view class="address">
-			<view class="left">
-				<uni-icons type="home" color="rgba(28,140,242,1)"  size="30" ></uni-icons>
-				<text class="location">填写上门信息</text>	
+		<!-- 信息入口 -->
+		<view class="">
+			<view class="address" @click="openPopup(1)">
+				<view class="left">
+					<uni-icons type="location-filled" size="30" color="rgba(28,140,242,1)"  ></uni-icons>
+					<text class="location">奥斯可广场</text>	
+				</view>
+				<uni-icons type="right" size="24" ></uni-icons>		
 			</view>
-			<uni-icons type="right" size="24" ></uni-icons>		
-		</view>
-		
-		<view class="address">
-			<view class="left">
-				<uni-icons type="close" size="30" color="rgba(28,140,242,1)"  ></uni-icons>
-				<text class="location">立即上门</text>
-				<uni-icons type="right" size="24" class="icon1"></uni-icons>		
+			<view class="address">
+				<view class="left">
+					<uni-icons type="home" color="rgba(28,140,242,1)"  size="30" ></uni-icons>
+					<text class="location">填写上门信息</text>	
+				</view>
+				<uni-icons type="right" size="24" ></uni-icons>		
 			</view>
-			<view class="right">
-				<uni-icons type="shop-filled" size="30" color="rgba(28,140,242,1)" class="icon1"></uni-icons>		
-				<text>请选择物品信息</text>
-				<uni-icons type="right" size="24"></uni-icons>	
-			</view>
-					
-		</view>
-		
-	</view>
-	
-	<!-- 支付入口 -->
-	<view class="">
-		<!-- 收款方式 -->
-		<view class="pay-way">
-			<view class="left">
-				<text>收款方式</text>
-			</view>
-			<view class="right">
-				<uni-icons type="weixin" size="24" color="rgba(46,192,118,1)" class="wei-pay" ></uni-icons>	
-				<text>微信支付</text>
-				<uni-icons type="right" size="24" ></uni-icons>	
+			<view class="address" >
+				<view class="left" @click="openPopup(2)">
+					<uni-icons type="close" size="30" color="rgba(28,140,242,1)"  ></uni-icons>
+					<text class="location">立即上门</text>
+					<uni-icons type="right" size="24" class="icon1"></uni-icons>		
+				</view>
+				<view class="right" @click="openPopup(5)">
+					<uni-icons type="shop-filled" size="30" color="rgba(28,140,242,1)" class="icon1"></uni-icons>		
+					<text>请选择物品信息</text>
+					<uni-icons type="right" size="24"></uni-icons>	
+				</view>
 			</view>
 		</view>
 		
-		<!-- 号码保护 -->
-		<view class="pay-way">
-			<view class="left">
-				<text>号码保护</text>
+		<!-- 支付入口 -->
+		<view class="">
+			<!-- 收款方式 -->
+			<view class="pay-way">
+				<view class="left">
+					<text>收款方式</text>
+				</view>
+				<view class="right">
+					<uni-icons type="weixin" size="24" color="rgba(46,192,118,1)" class="wei-pay" ></uni-icons>	
+					<text>微信支付</text>
+					<uni-icons type="right" size="24" ></uni-icons>	
+				</view>
 			</view>
-			<view class="middle">
-				<text>隐藏真实手机号码 保护隐私</text>	
+			
+			<!-- 号码保护 -->
+			<view class="pay-way">
+				<view class="left">
+					<text>号码保护</text>
+				</view>
+				<view class="middle">
+					<text>隐藏真实手机号码 保护隐私</text>	
+				</view>
+				<view class="right">
+					<text class="self-msg">保护隐私中</text>
+					<uni-icons type="checkmarkempty" size="24" ></uni-icons>	
+				</view>
 			</view>
-			<view class="right">
-				<text class="self-msg">保护隐私中</text>
-				<uni-icons type="checkmarkempty" size="24" ></uni-icons>	
+			
+			<!-- 添加备注 -->
+			<view class="pay-way" @click="openPopup(3)">
+				<view class="left">
+					<text>添加备注</text>
+				</view>
+				<view class="right">
+					<text class="self-msg">可备注物品描述、上门要求等</text>
+					<uni-icons type="right" size="24" ></uni-icons>	
+				</view>
 			</view>
 		</view>
 		
-		<!-- 添加备注 -->
-		<view class="pay-way">
-			<view class="left">
-				<text>添加备注</text>
+		<!-- 用户协议和去下单 -->
+		<view class="to-order-pact">
+			<!-- 协议 -->
+			<view class="pact">
+				<uni-icons type="checkmarkempty" size="22"></uni-icons>
+				<text>已阅读并同意<text class="green">《用户协议》</text></text>
 			</view>
-			<view class="right">
-				<text class="self-msg">可备注物品描述、上门要求等</text>
-				<uni-icons type="right" size="24" ></uni-icons>	
+			
+			<view class="to-order">
+				<view class="left">
+					<uni-icons type="gift-filled" size="24" color="white"></uni-icons>
+					选择物品后预估价格
+				</view>
+				<view class="right" @click="openPopup(4)">
+					去下单
+				</view>
 			</view>
-		</view>
-	</view>
-	</view>
-	
-	<!-- 用户协议和去下单 -->
-	<view class="to-order-pact">
-		<!-- 协议 -->
-		<view class="pact">
-			<uni-icons type="checkmarkempty" size="22"></uni-icons>
-			<text>已阅读并同意<text class="green">《用户协议》</text></text>
+			<view class="to-order">
+				<view class="left">
+					<uni-icons type="gift-filled" size="24" color="white"></uni-icons>
+					预估回收价格￥18888
+				</view>
+				<view class="right" @click="openPopup(4)">
+					去下单
+				</view>
+			</view>
 		</view>
 		
-		<view class="to-order">
-			<view class="left">
-				<uni-icons type="gift-filled" size="24" color="white"></uni-icons>
-				选择物品后预估价格
-			</view>
-			<view class="right">
-				去下单
-			</view>
-		</view>
-		<view class="to-order">
-			<view class="left">
-				<uni-icons type="gift-filled" size="24" color="white"></uni-icons>
-				预估回收价格￥18888
-			</view>
-			<view class="right">
-				去下单
-			</view>
-		</view>
-		<uni-popup ref="popup" type="bottom"  
-		border-radius="10px 10px 0 0">底部弹出 Popup 自定义圆角</uni-popup>
-	</view>
-	
-	
-	<view>
-	    <button @click="openPopup">打开底部弹出1层</button>
-	    <uni-popup ref="popup" type="bottom" background-color="#fff">
-			<SearchAddress @close="handleclose" ></SearchAddress>
+		<!-- 弹出层的五种弹出内容 -->
+		<uni-popup
+		 ref="popup" 
+		type="bottom"
+		 border-radius="15px 15px 0 0" 
+		background-color="#FFFFFF" >
+			<SearchAddress @close="handleclose" v-if="witchItemToShow === 1" ></SearchAddress>
+			<DoorToDoorTime @close="handleclose" v-if="witchItemToShow === 2" ></DoorToDoorTime>
+			<AddNotes @close="handleclose" v-if="witchItemToShow === 3"></AddNotes>
+			<SuccessPlace @close="handleclose" v-if="witchItemToShow === 4" ></SuccessPlace>
+			<SelectPage @close="handleclose" v-if="witchItemToShow === 5"></SelectPage>
 		</uni-popup>
-	  </view>
+	</view>
 </template>
 
 <script>
 import SearchAddress from '@/components/SearchAddress.vue';
+import DoorToDoorTime from '@/components/DoorToDoorTime.vue';
+import AddNotes from '@/components/AddNotes.vue'
+import SuccessPlace from '@/components/SuccessPlace.vue';
+import SelectPage from '@/components/SelectPage.vue';
 
 export default {
 	components:{
-		SearchAddress
+		SearchAddress,
+		DoorToDoorTime,
+		AddNotes,
+		SuccessPlace,
+		SelectPage
 	},
 	methods: {
-		openPopup(){
+		openPopup(identify){
+			this.witchItemToShow = identify
            // 通过组件定义的ref调用uni-popup方法 ,如果传入参数 ，type 属性将失效 ，仅支持 ['top','left','bottom','right','center']
            this.$refs.popup.open()
 		},
 		handleclose(){
 			this.$refs.popup.close()
+		}
+	},
+	data(){
+		return {
+			witchItemToShow: 2,
 		}
 	}
 }

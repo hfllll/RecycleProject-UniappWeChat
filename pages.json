@@ -111,8 +111,8 @@
 		      //按需引入组件(以button为例)
 		    "van-button": "/wxcomponents/vant-weapp/button/index",
 			  "van-field": "/wxcomponents/vant-weapp/field/index",
-			  "van-icon": "/wxcomponents/vant-weapp/icon/index"
-			  
+			  "van-icon": "/wxcomponents/vant-weapp/icon/index",
+			  "van-picker": "/wxcomponents/vant-weapp/picker/index"
 		}
 
 	},
