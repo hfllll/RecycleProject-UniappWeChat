@@ -12,7 +12,7 @@
 				</view>
 				<uni-icons type="right" size="24" ></uni-icons>		
 			</view>
-			<view class="address">
+			<view class="address" @click="gotoFillOrder">
 				<view class="left">
 					<uni-icons type="home" color="rgba(28,140,242,1)"  size="30" ></uni-icons>
 					<text class="location">填写上门信息</text>	
@@ -122,6 +122,7 @@ import DoorToDoorTime from '@/components/DoorToDoorTime.vue';
 import AddNotes from '@/components/AddNotes.vue'
 import SuccessPlace from '@/components/SuccessPlace.vue';
 import SelectPage from '@/components/SelectPage.vue';
+import { getStatus } from '@/api/order.js'
 
 export default {
 	components:{
@@ -139,12 +140,22 @@ export default {
 		},
 		handleclose(){
 			this.$refs.popup.close()
+		},
+		//在起始页面跳转到test.vue页面并传递参数
+		gotoFillOrder(){
+			uni.navigateTo({
+				url:'/pages/order/fillOrderInformation'
+			})
 		}
 	},
 	data(){
 		return {
 			witchItemToShow: 2,
 		}
+	},
+	async created() {
+		const p = await getStatus(2)
+		console.log(p);
 	}
 }
 </script>

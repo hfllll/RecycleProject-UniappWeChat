@@ -11,40 +11,73 @@
 			<view class="text">
 				<text>地址<text class="red">*</text></text>	
 			</view>
-			<input type="text" placeholder="请输入地址" value="奥克斯广场" />
+			<input type="text" placeholder="请输入地址" 
+			v-model="msg" />
 			<uni-icons type="right"></uni-icons>
 		</view>
 		<view class="item">
 			<view class="text">
 				<text>门牌号<text class="red">*</text></text>	
 			</view>
-			<input type="text" placeholder="输入详细地址与门牌号" />
+			<input type="text" placeholder="输入详细地址与门牌号" 
+			v-model="roomNumber" />
+			
 		</view>
 		<view class="item">
 			<view class="text">
 				<text>楼层<text class="red">*</text></text>	
 			</view>
-			<input type="text" placeholder="输入详细楼层" />
+			<input type="text" placeholder="输入详细楼层"
+			v-model="floor" />
 		</view>
 		<view class="item">
 			<view class="text">
 				<text>联系人<text class="red">*</text></text>	
 			</view>
-			<input type="text" placeholder="输入联系人姓名" />
+			<input type="text" placeholder="输入联系人姓名"
+			v-model="consignee" />
 		</view>
 		<view class="item">
 			<view class="text">
 				<text>电话<text class="red">*</text></text>	
 			</view>
-			<input type="text" placeholder="输入联系电话" />
+			<input type="text" placeholder="输入联系电话" 
+			v-model="phone" />
 		</view>
-		<ConfirmButton :value="value"></ConfirmButton>
+		<ConfirmButton :value="value" @click="addAddress"></ConfirmButton>
 	</view>
 </template>
 
-<script setup>
-	import ConfirmButton from '@/components/confirmButton.vue';
-	const value = '保存并使用'
+<script>
+import ConfirmButton from '@/components/confirmButton.vue';
+import { setAddAddress } from '@/api/order';
+export default{
+	data(){
+		return {
+			value:'保存并使用',
+			roomNumber:'1',
+			floor:'2',
+			consignee:'3',
+			phone:'4',
+			msg:'奥克斯广场'
+		}
+	},
+	components:{
+		ConfirmButton
+	},
+	methods:{
+		async addAddress(){
+			// console.log('点击了');
+			const p = await setAddAddress({
+				msg: this.msg,
+				consignee: this.consignee,
+				roomNumber: this.roomNumber,
+				floor: this.floor,
+				phone: this.phone
+			})
+		}
+	}
+}
 </script>
 
 <style lang="scss" scoped> 
@@ -75,7 +108,7 @@
 	}
 	.detail{
 		width: 100%;
-		height: 342px;
+		// height: 342px;
 		border-radius: 10px 10px 10px 10px;
 		background-color: rgba(255,255,255,1);
 		font-size: 14px;
