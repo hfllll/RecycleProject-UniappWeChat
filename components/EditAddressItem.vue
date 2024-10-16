@@ -44,14 +44,42 @@
 			<input type="text" placeholder="输入联系电话" 
 			v-model="phone" />
 		</view>
-		<ConfirmButton :value="value" @click="addAddress"></ConfirmButton>
+		<ConfirmButton :value="value" @click="openModal()"></ConfirmButton>
 	</view>
+	<uv-modal ref="modal"
+	 showCancelButton="true"
+	 title="是否保存地址"
+	content=''
+	 @confirm="confirm(obj)"></uv-modal>
 </template>
 
 <script>
 import ConfirmButton from '@/components/confirmButton.vue';
 import { setAddAddress } from '@/api/order';
+import { useAddressStore } from '@/stores/order';
+
 export default{
+	setup() {
+		const useAddress = useAddressStore()
+		const confirm = (obj) =>{
+			console.log(111);
+			console.log(obj);
+			// 判断两种情况下的不同功能
+			const pages = getCurrentPages()  // 获取页面栈
+			const currentPage = pages[pages.length - 1]  // 当前页面
+			const route = currentPage.route  //获取当前页面的路由
+			console.log(route);
+			if (route === 'pages/order/fillOrderInformation'){
+				console.log('这是增加地址');
+				useAddress.addAddress(obj);
+			}else if(route === 'pages/my/editAddress') {
+				useAddress.changeAddress({...obj, })
+			}
+		}
+		return {
+			confirm
+		}
+	},
 	data(){
 		return {
 			value:'保存并使用',
@@ -59,23 +87,32 @@ export default{
 			floor:'2',
 			consignee:'3',
 			phone:'4',
-			msg:'奥克斯广场'
+			msg:'奥克斯广场',
+			id:''
 		}
 	},
 	components:{
 		ConfirmButton
 	},
-	methods:{
-		async addAddress(){
-			// console.log('点击了');
-			const p = await setAddAddress({
+	computed:{
+		obj(){
+			return{
 				msg: this.msg,
 				consignee: this.consignee,
 				roomNumber: this.roomNumber,
 				floor: this.floor,
 				phone: this.phone
-			})
+			}
 		}
+	},
+	methods:{
+		openModal() {
+			this.$refs.modal.open();
+		},
+	},
+	onLoad(option) {
+		// options 是 navigateTo 中的参数
+		console.log(options);
 	}
 }
 </script>
@@ -108,7 +145,7 @@ export default{
 	}
 	.detail{
 		width: 100%;
-		// height: 342px;
+		height: 342px;
 		border-radius: 10px 10px 10px 10px;
 		background-color: rgba(255,255,255,1);
 		font-size: 14px;

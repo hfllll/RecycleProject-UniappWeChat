@@ -2,7 +2,7 @@
 	<view class="item">
 		<view class="isdefault" 
 		:style="{color: colorBasedOnDefault}"
-		@click="setDefault"
+		@click="openModal"
 		>
 			{{obj.isDefault === 0? '默认地址':'设为默认'}}
 		</view>
@@ -12,20 +12,42 @@
 			<text class="name">{{obj.consignee}}</text>
 			<text class="phone">&nbsp;&nbsp;{{obj.phone}}</text>	
 		</view>
-		<van-icon name="edit" color="blue" size="25px"/>
+		<van-icon name="edit" color="blue" size="25px"
+		 @click="gotoEdit" />
+		<uv-modal ref="modal" 
+		title="是否设置为默认地址？" 
+		content=''
+		 @confirm="confirm(obj.id)"></uv-modal>
 	</view>
 </template>
 
 <script>
-import { setAddress, getAddress } from '@/api/order';
+import { useAddressStore } from '@/stores/order';
 export default{
+	setup() {
+		const useAddress = useAddressStore()
+		// 定义设置默认的方法
+		const confirm = (id) => {
+			useAddress.setDefault(id)
+		}
+		return{
+			confirm,
+		}
+	},
+	methods:{
+		openModal(){
+			this.$refs.modal.open();
+		},
+		gotoEdit(){
+			uni.navigateTo({
+				url:'/pages/my/editAddress?witchWay=1'
+			})
+		}
+	},
 	props:{
 		obj:{
 			type: Object
 		}
-	},
-	mounted() {
-			console.log(this.obj);
 	},
 	computed:{
 		colorBasedOnDefault(){
@@ -34,19 +56,6 @@ export default{
 			'rgba(28,140,242,1)'
 		}
 	},
-	methods:{
-		setDefault(){
-			if (this.obj.isDefault === 1){
-				this.send()
-			}
-		},
-		async send(){
-			const p = await setAddress(this.obj.id)
-			console.log(p);
-			const p1 = await getAddress(1)
-			console.log(p1 );
-		}
-	}
 }
 </script>
 

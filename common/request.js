@@ -35,7 +35,7 @@ export const get = (url, params = {}) => {
 };
 
 // POST 请求封装
-export const post = (url, data = {}) => {
+export const post = (url, data) => {
   return request({
     url,
     method: 'POST',
@@ -46,4 +46,16 @@ export const post = (url, data = {}) => {
   });
 };
 
-export default { get, post };
+// PUT 请求封装
+export const put = (url, data) => {
+  return request({
+    url,
+    method: 'PUT',
+    data,
+    header: {
+      'Content-Type': 'application/json'
+    }
+  });
+};
+
+export default { get, post, put };

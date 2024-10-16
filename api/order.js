@@ -1,5 +1,5 @@
 // 引入封装的请求库
-import {get, post} from '@/common/request.js';
+import {get, post, put} from '@/common/request.js';
 
 // 回收物品二级接口
 export const getStatus = (categoryRecycleId) =>{
@@ -17,7 +17,7 @@ export const getAddress = (userId) =>{
 
 // 设置默认地址
 export const setAddress = (id) =>{
-	return post(
+	return get(
 	'/user/orders/address/default',
 	{ id })
 }
@@ -26,5 +26,12 @@ export const setAddress = (id) =>{
 export const setAddAddress = (obj) => {
 	return post(
 	'/user/orders/address/save',
-	{ ...obj })
+	obj)
+}
+
+// 修改常用地址（我的）
+export const setChangeAddress = (obj) => {
+	return put(
+	'/user/mine/address/update',
+	obj)
 }

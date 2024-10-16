@@ -4,7 +4,8 @@
 	<view class="box">
 		<text class="text">常用地址</text>
 		<view class="item-list">
-			<AddressItem v-for="ele in data" :obj="ele" @handleEvent="modifyAddress" ></AddressItem>
+			<AddressItem v-for="ele in addressItem" 
+			:obj="ele" :id="ele.id" ></AddressItem>
 		</view>
 	</view>
 	
@@ -14,28 +15,32 @@
 import AddressItem from '@/components/AddressItem.vue';
 import EditAddressItem from '@/components/EditAddressItem.vue';
 import { getAddress } from '@/api/order.js';
+import { useAddressStore } from '@/stores/order';
+import { storeToRefs } from 'pinia';
 
 export default{
+	setup() {
+		const useAddress = useAddressStore()
+		
+		// 结构出 addressItem，使其为响应式数据
+		const { addressItem } = storeToRefs(useAddress)
+		
+		// 在组件初始化时调用获取地址的方法
+		useAddress.fetchAddress(1)
+		
+		return {
+			addressItem
+		}
+	},
 	components:{
 		AddressItem,
 		EditAddressItem
 	},
 	data(){
-		return {
-			data:[]
+		return{
+			
 		}
-	},
-	async created() {
-	  const p = await getAddress(1)
-	  const {data} = p
-	  this.data = data
-	  console.log(p);
-	},
-	// methods:{
-	// 	modifyAddress(){
-	// 		const p = await this.
-	// 	}
-	// }
+	}
 }
 
 </script>

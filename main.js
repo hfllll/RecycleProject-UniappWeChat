@@ -17,6 +17,7 @@ Vue.use(PiniaVuePlugin);
 // 将 request 挂载到 Vue 原型上，方便全局使用
 Vue.prototype.$get = request.get;
 Vue.prototype.$post = request.post;
+Vue.prototype.$put= request.put;
 
 // 创建 Pinia 实例
 const pinia = createPinia();
@@ -56,6 +57,9 @@ export function createApp() {
   // 将请求库挂载到全局
   app.config.globalProperties.$get = request.get;
   app.config.globalProperties.$post = request.post;
+  app.config.globalProperties.$put = request.put;
+  
+
 
   return {
     app
