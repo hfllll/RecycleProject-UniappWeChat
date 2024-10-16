@@ -38,10 +38,14 @@
       <map class="map" :latitude="latitude" :longitude="longitude" :scale="14"></map>
        <view class="scroll-view">
           <view class="section section1">
-            <image src="/static/images/location.png" mode=""></image>
-            <text class="location">当前位置</text>
+            <view class="current-location">
+              <image class="image" src="/static/images/location.png" mode=""></image>
+              <text class="location">当前位置</text>
+            </view>
             <text class="main">主营：家电|废纸</text>
-            <button type="primary" style="width: 75%;">去下单</button>
+            <view class="order-button">
+              <navigator url="/pages/order/order" style="width: 75%;" @click="goOrder" class="primary">去下单</navigator>
+            </view>
           </view>
           <view class="section section2">
             <view class="recycle">
@@ -102,8 +106,8 @@
            userAvatar: 'https://tse3-mm.cn.bing.net/th/id/OIP-C.HVdWPbF8w9RDzR_VFdskegAAAA?rs=1&pid=ImgDetMain', // 用户头像URL
            appName: '小程序名称',
            latitude: 40.7128,
-                 longitude: -74.0060,
-                 scale: 14, // 设置地图的缩放级别
+          longitude: -74.0060,
+          scale: 14, // 设置地图的缩放级别
     		}
     	},
        methods: {
@@ -122,6 +126,11 @@
              console.log('city')
              wx.navigateTo({
                url:'/pages/city/city'
+             })
+           },
+           goOrder() {
+             wx.switchTab({
+               url:'/pages/order/order',
              })
            }
          },
@@ -271,42 +280,57 @@
      width: 100%;
      height: 30%; /* 地图占据页面的30% */
    }
-   
-   .scroll-view {
+    
+  .order-button {
+    display: flex;
+    justify-content: center;
+    .primary {
+      margin-top: 20rpx;
+      height: 60rpx;
+      border-radius: 10rpx;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #2ec076;
+      color: white;
+    }
+  }
   
-   }
    
    .section {
      border: 1px solid #c2c2c2; /* 边框 */
      margin-bottom: 8rpx; /* 间距 */
-     padding: 16rpx; /* 内边距 */
      border-radius: 45rpx;
    }
    .section:first-child {
-     height: 270rpx;
-     image {
-       width: 50rpx;
-       height: 50rpx;
-       padding: 16rpx 14rpx;
-       float: left;
-     }
-     .location {
-       font-size: 36rpx;
-       font-weight: bold;
+     height: 290rpx;
+       
+     .current-location {
+       line-height: 40rpx;
        display: flex;
-       margin-top: 20rpx;
-       margin-bottom: 30rpx;
+       align-items: center;
+       margin-left: 20rpx;
+       .image {
+         width: 40rpx;
+         height: 40rpx;
+         float: left;
+       }
+       .location {
+         font-size: 36rpx;
+         font-weight: bold;
+         display: flex;
+         margin-top: 20rpx;
+         margin-bottom: 30rpx;
+       }
      }
+     
      .main {
        font-size: 28rpx;
        color: #949494;
        margin-bottom: 30rpx;
+       margin-left: 20rpx;
      }
-     button {
-       margin-top: 40rpx;
-       background-color: #2ec076;
-       border-radius: 20rpx;
-     }
+    
    }
   
  .section2 {
@@ -316,7 +340,7 @@
  }
  
  .recycle {
-   width: 300rpx; /* 设置宽度 */
+   width: 310rpx; /* 设置宽度 */
    height: 80rpx; /* 设置高度 */
    background-color: #2ec076; /* 设置背景色 */
    display: flex; /* 使用 flexbox 来布局 */
@@ -364,7 +388,7 @@
  }
 
    .section:nth-child(3) {
-     height: 270rpx;
+     height: 290rpx;
      margin-bottom: 0; /* 移除最后一部分底部间距 */
    
      .detail {

@@ -40,7 +40,9 @@
 		  {
 			"path": "pages/index/index",
 			"style": {
-				"navigationBarTitleText": "首页"
+				"navigationBarTitleText": "我的订单",
+        "navigationBarBackgroundColor": "#2ec076",
+        "navigationBarTextStyle": "white"
 			}
 		  },
 		  {
@@ -98,6 +100,40 @@
               }
             }
           }
+    },
+    {
+      "path" : "pages/index/index1",
+      "style" : 
+      {
+        "navigationBarTitleText" : ""
+      }
+    },
+    {
+      "path" : "pages/index/cancelOrder",
+      "style" : 
+      {
+        "navigationBarTitleText" : "我的订单",
+        "navigationBarBackgroundColor": "#2ec076",
+        "navigationBarTextStyle": "white"
+      }
+    },
+    {
+      "path" : "pages/index/evaluateOrder",
+      "style" : 
+      {
+        "navigationBarTitleText" : "评价",
+        "navigationBarBackgroundColor": "#2ec076",
+        "navigationBarTextStyle": "white"
+      }
+    },
+    {
+      "path" : "pages/index/finishEvaluate",
+      "style" : 
+      {
+        "navigationBarTitleText" : "我的订单",
+        "navigationBarBackgroundColor": "#2ec076",
+        "navigationBarTextStyle": "white"
+      }
     }],
 
 
