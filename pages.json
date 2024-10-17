@@ -1,6 +1,5 @@
 {
 	"pages": [
-
 		  {
 	        "path": "pages/order/fillOrderInformation",
 	        "style": {
@@ -39,20 +38,20 @@
 	      },
 		  {
 			"path": "pages/index/index",
-			"style": {
+			"style": {                             
 				"navigationBarTitleText": "我的订单",
         "navigationBarBackgroundColor": "#2ec076",
         "navigationBarTextStyle": "white"
-			}
-		  },
+        }
+      },
 		  {
 			  "path": "pages/login/login",
 			  "style": {
 				"navigationBarTitleText": "登录",
         "navigationBarBackgroundColor": "#2ec076",
         "navigationBarTextStyle": "white"
-			  }
-		  },
+        }
+      },
 	      {
 	        "path": "pages/my/editAddress",
 	        "style": {
@@ -147,9 +146,10 @@
 		},
 		"usingComponents": {
 		      //按需引入组件(以button为例)
-		    "van-button": "/wxcomponents/vant-weapp/button/index",
-			  "van-field": "/wxcomponents/vant-weapp/field/index",
-			  "van-icon": "/wxcomponents/vant-weapp/icon/index"
+		  "van-button": "/wxcomponents/vant-weapp/button/index",
+		  "van-field": "/wxcomponents/vant-weapp/field/index",
+		  "van-icon": "/wxcomponents/vant-weapp/icon/index",
+		  "van-picker": "/wxcomponents/vant-weapp/picker/index"
 		}
 
 	},
@@ -174,11 +174,18 @@
         "selectedIconPath": "static/images/recycle.png"
       },
       {
-        "pagePath":"pages/order/order",
+        "pagePath":"pages/index/index",
         "text":"订单",
         "iconPath": "static/images/order.png",
         "selectedIconPath": "static/images/order-active.png"
       },
+
+      // {
+      //   "pagePath":"pages/order/order",
+      //   "text":"订单",
+      //   "iconPath": "static/images/order.png",
+      //   "selectedIconPath": "static/images/order-active.png"
+      // },
       {
         "pagePath":"pages/my/my",
         "text":"我的",

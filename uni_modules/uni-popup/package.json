@@ -1,15 +1,15 @@
 {
 	"id": "uni-popup",
 	"displayName": "uni-popup 弹出层",
-	"version": "1.9.2",
-	"description": " Popup 组件，提供常用的弹层",
+	"version": "1.9.4",
+	"description": "Popup 组件，提供常用的弹层",
 	"keywords": [
-        "uni-ui",
-        "弹出层",
-        "弹窗",
-        "popup",
-        "弹框"
-    ],
+		"uni-ui",
+		"弹出层",
+		"弹窗",
+		"popup",
+		"弹框"
+	],
 	"repository": "https://github.com/dcloudio/uni-ui",
 	"engines": {
 		"HBuilderX": ""
@@ -17,8 +17,8 @@
 	"directories": {
 		"example": "../../temps/example_temps"
 	},
-    "dcloudext": {
-        "sale": {
+	"dcloudext": {
+		"sale": {
 			"regular": {
 				"price": "0.00"
 			},
@@ -34,8 +34,8 @@
 			"data": "无",
 			"permissions": "无"
 		},
-        "npmurl": "https://www.npmjs.com/package/@dcloudio/uni-ui",
-        "type": "component-vue"
+		"npmurl": "https://www.npmjs.com/package/@dcloudio/uni-ui",
+		"type": "component-vue"
 	},
 	"uni_modules": {
 		"dependencies": [
@@ -46,8 +46,8 @@
 		"platforms": {
 			"cloud": {
 				"tcb": "y",
-                "aliyun": "y",
-                "alipay": "n"
+				"aliyun": "y",
+				"alipay": "n"
 			},
 			"client": {
 				"App": {
@@ -77,11 +77,11 @@
 				"快应用": {
 					"华为": "u",
 					"联盟": "u"
-                },
-                "Vue": {
-                    "vue2": "y",
-                    "vue3": "y"
-                }
+				},
+				"Vue": {
+					"vue2": "y",
+					"vue3": "y"
+				}
 			}
 		}
 	}

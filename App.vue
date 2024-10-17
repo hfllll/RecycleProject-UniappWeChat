@@ -14,6 +14,7 @@
 </script>
 
 <style lang="scss">
+	@import '@/uni_modules/uv-ui-tools/index.scss';
 	// 带入vant样式组件
 	@import "/wxcomponents/vant-weapp/common/index.wxss";
 	/*每个页面公共css */

@@ -1,13 +1,19 @@
 <template>
-	<button class="comfire">{{ value }}</button>
+	<view>
+		<button class="comfire" @click="$emit('click')">{{ value }}</button>	
+	</view>
+	
 </template>
 
-<script setup>
-	defineProps({
+<script>
+export default{
+	props:{
 		value:{
-			type: String
+			type:String
 		}
-	})
+	}
+}
+
 </script>
 
 <style scoped lang="scss">
