@@ -39,19 +39,35 @@
     </view>
     
     <!-- 订单信息 -->
-    <allOrder></allOrder>
+    <view v-if="selectedStatus===status||selectedStatus==='全部'" >
+      <allOrder></allOrder>
+    </view>
+    
+    <!-- <allOrder></allOrder> -->
     <!-- 待接单 -->
-    <!-- <waitOrder></waitOrder> -->
+    <view v-if="selectedStatus==='待接单'||selectedStatus==='全部'">
+      <waitOrder></waitOrder>
+    </view>
     <!-- 已取消 -->
-    <!-- <cancelOrder></cancelOrder> -->
+    <view v-if="selectedStatus==='已取消'||selectedStatus==='全部'">
+      <cancelOrder></cancelOrder>
+    </view>
     <!-- 待确认 -->
-    <!-- <waitAffirm></waitAffirm> -->
+    <view v-if="selectedStatus==='待确认'||selectedStatus==='全部'">
+      <waitAffirm></waitAffirm>
+    </view>
     <!--  待评价-->
-    <!-- <waitEvaluate></waitEvaluate> -->
+    <view v-if="selectedStatus==='已完成待评价'||selectedStatus==='全部'">
+      <waitEvaluate></waitEvaluate>
+    </view>
     <!-- 已结束 -->
-    <!-- <finishOrder></finishOrder> -->
+    <view v-if="selectedStatus==='已结束'||selectedStatus==='全部'">
+      <finishOrder></finishOrder>
+    </view>
     <!-- 已接单 -->
-    <!-- <receiveOrder></receiveOrder> -->
+    <view v-if="selectedStatus==='已接单'||selectedStatus==='全部'">
+      <receiveOrder></receiveOrder>
+    </view>
   </view>
 </template>
 <script setup>
@@ -63,6 +79,7 @@ import waitAffirm from '@/components/waitAffirm.vue'
 import waitEvaluate from '@/components/waitEvaluate.vue';
 import finishOrder from '@/components/finishOrder.vue';
 import receiveOrder from '@/components/receiveOrder.vue';
+import { getOrdersByStatus } from '@/api/index.js';
 // 定义状态
 const searchQuery = ref('');
 const selectedCategory = ref('家电订单');
@@ -79,30 +96,7 @@ const orderStatuses = [
 ];
 
 // 示例订单数据
-const orders = ref([
-  { 
-    id: 1,
-    name: '订单1',
-    category: '家电订单',
-    status: '待接单',
-    userName:'李彰化',
-    userAvatar:'https://tupian.qqw21.com/article/UploadPic/2020-10/2020101722211881489.jpg',
-    orderId:'1232222222222',//订单编号
-    phone:'1547822222',//电话号码
-    time: '2024-07-29',//下单时间
-    address:'武夷街道百花路358号',//回收地址,
-    recycleItem:'电视机',//回收物品
-    attention:'易碎物品',//备注
-    attach:'张三',//张三
-    orderTime:'2024-07-29  11:00-13:00',
-    moneyWay:'微信',
-    size:24,
-    isNormal: true
-    
-     }
-  // 更多订单...
-]);
-
+const orders = ref([]);
 // 选择订单分类
 const selectCategory = (category) => {
   selectedCategory.value = category;

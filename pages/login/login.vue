@@ -1,7 +1,7 @@
 <template>
   <view class="container">
     <image
-      :src="userAvatar"
+      :src="userAvatarDefault"
       class="avatar"
       mode="aspectFill" 
       style="width: 150rpx;height: 150rpx;"
@@ -66,14 +66,19 @@
 </template>
 
 <script>
+import { userLogin } from '../../api/login.js'; 
+import { useAuthStore } from '../../stores/user'; // 导入 Pinia store
+import { storeToRefs } from 'pinia';
 export default {
   data() {
     return {
-      userAvatar: 'https://tupian.qqw21.com/article/UploadPic/2020-10/2020101722211881489.jpg', // 替换为动态的用户头像URL
+      userAvatarDefault: '/static/images/avatar.png', // 替换为动态的用户头像URL
+      userAvatar: '/static/images/avatar.png',
       userName: '小程序名称' ,// 替换为动态的用户名
       showPopup: false,//控制弹出层
       wxName: '微信昵称',     // 微信名称
       phoneNumber: '15777777777', // 用户电话号码
+      code: ''//临时登录凭证
     };
   },
   methods: {
@@ -82,6 +87,13 @@ export default {
       },
     authorize() {
         // 授权逻辑
+        uni.login({
+          provider:'weixin',
+          success: function(LoginRes) {
+            this.code=LoginRes.code
+            console.log(LoginRes)
+          }
+        })
         this.showPopup = true
     },
     decline() {
@@ -89,9 +101,35 @@ export default {
     this.closePopup();
     },
     agree() {
-      // 同意逻辑
-      this.closePopup();
-    }
+      const authStore = useAuthStore();
+      userLogin(this.code)
+       .then(response => {
+         const { token } = response;
+         
+         // 使用 Pinia 存储 token
+         authStore.setToken(token);
+         console.log('111',this.code)
+         console.log('登录成功，token:', token);
+         // this.closePopup();
+         wx.navigateTo({
+           url:'/pages/home/home'
+         })
+       })
+       .catch(error => {
+         console.error('登录失败:', error);
+         uni.showToast({
+           title:'登录失败，请重试！'
+         })
+       });
+           // 使用 Pinia 管理器
+    
+          // 调用登录接口
+
+           
+        },
+        decline() {
+          this.closePopup();
+        }
   }
 };
 </script>
